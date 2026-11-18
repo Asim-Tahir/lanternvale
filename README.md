@@ -39,6 +39,7 @@ The Unity project is configured for 2D URP and uses the Unity Input System packa
 | ------------- | -------------------------------- |
 | Move          | `W`, `A`, `S`, `D` or arrow keys |
 | Attack        | `Space`                          |
+| Back / Cancel | `Escape` or gamepad East button  |
 
 The main menu and settings panels support keyboard and gamepad selection through the Unity Event System.
 
