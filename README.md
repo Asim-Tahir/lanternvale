@@ -78,3 +78,14 @@ The build scenes are configured in `ProjectSettings/EditorBuildSettings.asset`:
 - The saved level key selects the scene loaded by the Continue button.
 - The mixer exposes `MusicVolume` and `SFXVolume` parameters.
 - Generated Unity directories such as `Library`, `Temp`, `Obj`, and `Build` are excluded through `.gitignore`.
+
+## Credit
+
+- Sprout Lands Asset Pack by Cup Nooble
+  Link: https://cupnooble.itch.io/sprout-lands-asset-pack
+- Sprout Lands UI Pack by Cup Nooble
+  Link: https://cupnooble.itch.io/sprout-lands-ui-pack
+- Gaming Game Video Game Music by Viacheslav Starostin
+  Link: https://pixabay.com/music/video-games-gaming-game-video-game-music-474517/
+- Pixelify Sans by Stefie Justprince
+  Link: https://fonts.google.com/specimen/Pixelify+Sans
