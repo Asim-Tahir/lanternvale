@@ -42,6 +42,13 @@ public class MainMenuController : MonoBehaviour
     _cancelAction.Enable();
   }
 
+  private void OnDestroy()
+  {
+    _cancelAction.performed -= OnCancelPerformed;
+    _cancelAction.Disable();
+    _cancelAction.Dispose();
+  }
+
   private void Start()
   {
     _mainMenuPanel.SetActive(true);
@@ -128,8 +135,10 @@ public class MainMenuController : MonoBehaviour
 
   private void OnCancelPerformed(InputAction.CallbackContext context)
   {
-    _cancelAction.performed -= OnCancelPerformed;
-    _cancelAction.Disable();
+    if (_settingsPanel.activeSelf)
+    {
+      OnBackClicked();
+    }
   }
 
   private void SelectUIElement(GameObject uiElement)
