@@ -2,6 +2,83 @@
 
 Lanternvale is a 2D pixel-art game project built with Unity. The repository currently includes a main menu, settings interface, game scene, player movement and attack animations, persistent volume settings, and saved level selection.
 
+## Screen Recording 
+
+> [!TIP]
+> For the best experience, turn on the audio.
+
+https://github.com/user-attachments/assets/15fb5004-8c78-4ebd-8b28-6471d6d1d169
+
+## Screenshots
+
+<table>
+  <tr>
+    <td>
+      <figure>
+        <img width="1600" alt="Main menu" src="https://github.com/user-attachments/assets/4219aaf0-ac4d-424f-a3a6-1f659a573c5e" />
+        <figcaption align="center">Main menu</figcaption>
+      </figure>
+    </td>
+    <td>
+      <figure>
+        <img width="1600" alt="Settings menu for music and SFX volume levels" src="https://github.com/user-attachments/assets/234b64dc-651a-46cd-9e78-dece82636abe" />
+        <figcaption align="center">Settings menu for adjusting music and SFX volume levels</figcaption>
+      </figure>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <figure>
+        <img width="1600" alt="First frame after starting a new game" src="https://github.com/user-attachments/assets/faaf84d1-7592-4bba-acc0-cb4c3ccdd959" />
+        <figcaption align="center">First frame shown after selecting New Game</figcaption>
+      </figure>
+    </td>
+    <td>
+      <figure>
+        <img width="1600" alt="Southeast view of the terrain" src="https://github.com/user-attachments/assets/e63bd43e-90db-4fa2-bc8a-dde55257de1b" />
+        <figcaption align="center">Southeast view of the terrain</figcaption>
+      </figure>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <figure>
+        <img width="1600" alt="South view of the terrain, with the character over the water beside a lily pad" src="https://github.com/user-attachments/assets/608c2b6a-fe54-4225-a69e-de8c928c09d4" />
+        <figcaption align="center">South view of the terrain, with the character over the water beside a lily pad</figcaption>
+      </figure>
+    </td>
+    <td>
+      <figure>
+        <img width="1600" alt="Northeast view of the terrain" src="https://github.com/user-attachments/assets/cd3c31ab-0c9e-4842-b607-66e3bf620c62" />
+        <figcaption align="center">Northeast view of the terrain</figcaption>
+      </figure>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <figure>
+        <img width="1600" alt="Northwest view of the terrain" src="https://github.com/user-attachments/assets/b6286a82-7d69-4a5d-9dd0-57e9340a6104" />
+        <figcaption align="center">Northwest view of the terrain</figcaption>
+      </figure>
+    </td>
+    <td>
+      <figure>
+        <img width="1600" alt="Southwest view of the terrain" src="https://github.com/user-attachments/assets/b32aadbd-688b-4cf5-8057-dae4c5d26893" />
+        <figcaption align="center">Southwest view of the terrain</figcaption>
+      </figure>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <figure>
+        <img width="1600" alt="Main menu with the Continue button enabled" src="https://github.com/user-attachments/assets/a8799914-9550-4850-9be5-cc92b523d87c" />
+        <figcaption align="center">Main menu with the Continue (Devam et) button enabled after starting a game</figcaption>
+      </figure>
+    </td>
+    <td></td>
+  </tr>
+</table>
+
 ## Features
 
 - Main menu with Continue, New Game, Settings, and Exit actions
