@@ -635,7 +635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6203133540836292856, guid: d1429d434720e477e9c5659db87ac8b3, type: 3}
       propertyPath: m_text
-      value: "\xC7\u0131k\u0131\u015F"
+      value: "\xC7ikis"
       objectReference: {fileID: 0}
     - target: {fileID: 7449658769626541841, guid: d1429d434720e477e9c5659db87ac8b3, type: 3}
       propertyPath: m_Name
@@ -1704,7 +1704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6203133540836292856, guid: d1429d434720e477e9c5659db87ac8b3, type: 3}
       propertyPath: m_text
-      value: "Geri D\xF6n"
+      value: Geri Don
       objectReference: {fileID: 0}
     - target: {fileID: 7449658769626541841, guid: d1429d434720e477e9c5659db87ac8b3, type: 3}
       propertyPath: m_Name
