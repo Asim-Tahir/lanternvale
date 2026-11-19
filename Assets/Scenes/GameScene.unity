@@ -32553,8 +32553,8 @@ Transform:
   m_Children:
   - {fileID: 776905193}
   - {fileID: 906701155}
-  - {fileID: 973228182}
   - {fileID: 1531896905}
+  - {fileID: 973228182}
   - {fileID: 252622571}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
