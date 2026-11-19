@@ -101,7 +101,7 @@ public class PlaceableTileManager : MonoBehaviour
 
     private void OnCancelPerformed(InputAction.CallbackContext context)
     {
-        ClearSelectionTile();
+        ClearSelectedTile();
     }
 
     public bool IsPointerOverUI()
@@ -148,7 +148,7 @@ public class PlaceableTileManager : MonoBehaviour
         }
     }
 
-    public void ClearSelectionTile()
+    public void ClearSelectedTile()
     {
         _selectedTile = null;
 
@@ -181,7 +181,7 @@ public class PlaceableTileManager : MonoBehaviour
 
     public void ToggleDisplaceMode()
     {
-        ClearSelectionTile();
+        ClearSelectedTile();
         _isDisplaceMode = !_isDisplaceMode;
     }
 
