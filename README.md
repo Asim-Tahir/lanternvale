@@ -166,5 +166,7 @@ The build scenes are configured in `ProjectSettings/EditorBuildSettings.asset`:
   - Link: https://pixabay.com/music/video-games-gaming-game-video-game-music-474517/
 - plant by Prmodrai
   - Link: https://pixabay.com/sound-effects/film-special-effects-plant-408205/
+- Hit Plant 01 by u_xjrmmgxfru
+  - Link: https://pixabay.com/sound-effects/film-special-effects-hit-plant-01-266293/
 - Pixelify Sans by Stefie Justprince
   - Link: https://fonts.google.com/specimen/Pixelify+Sans
