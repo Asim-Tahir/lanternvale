@@ -164,5 +164,7 @@ The build scenes are configured in `ProjectSettings/EditorBuildSettings.asset`:
   Link: https://cupnooble.itch.io/sprout-lands-ui-pack
 - Gaming Game Video Game Music by Viacheslav Starostin
   Link: https://pixabay.com/music/video-games-gaming-game-video-game-music-474517/
+- plant by Prmodrai
+  Link: https://pixabay.com/sound-effects/film-special-effects-plant-408205/
 - Pixelify Sans by Stefie Justprince
   Link: https://fonts.google.com/specimen/Pixelify+Sans
