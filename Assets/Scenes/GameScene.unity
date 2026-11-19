@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 142951913}
   - component: {fileID: 142951915}
   m_Layer: 5
-  m_Name: Panel_Actions
+  m_Name: Panel_TopActions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32208,6 +32208,7 @@ MonoBehaviour:
   _tilemap: {fileID: 1531896910}
   _playerAnimator: {fileID: 1180868801}
   _placeSound: {fileID: 8300000, guid: 3dc659de915c7460aafc2a4b0e416d9b, type: 3}
+  _displaceSound: {fileID: 0}
   _tiles:
   - {fileID: 11400000, guid: 246f4bde97e214d6b9baa00719063a0f, type: 2}
   - {fileID: 11400000, guid: 84083779713b641ab9f1c0025fea98f7, type: 2}
