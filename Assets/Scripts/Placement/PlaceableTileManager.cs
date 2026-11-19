@@ -160,11 +160,6 @@ public class PlaceableTileManager : MonoBehaviour
     public void ClearSelectedTile()
     {
         _selectedTile = null;
-
-        if (_ghostPreviewRenderer != null)
-        {
-            _ghostPreviewRenderer.gameObject.SetActive(false);
-        }
     }
 
     public void TryPlaceTile()
