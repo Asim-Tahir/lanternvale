@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,6 +14,7 @@ public class PlaceableTileManager : MonoBehaviour
     [SerializeField] private AudioClip? _placeSound;
     [SerializeField] private AudioClip? _displaceSound;
 #nullable disable annotations
+
     [SerializeField] private Tile[] _tiles;
 
     private bool _isDisplaceMode = false;
@@ -22,6 +24,8 @@ public class PlaceableTileManager : MonoBehaviour
     private Camera _camera;
     private InputAction _clickAction;
     private InputAction _cancelAction;
+
+    private readonly PlacementPrefManager _placementPrefManager = new();
 
     private const string GHOST_PREVIEW_RENDERER_NAME = "PlacePreview_Ghost";
     private const string GHOST_PREVIEW_SORTING_LAYER_NAME = "Placeable";
@@ -64,6 +68,11 @@ public class PlaceableTileManager : MonoBehaviour
 
         _cancelAction.performed -= OnCancelPerformed;
         _cancelAction.Disable();
+    }
+
+    private void Start()
+    {
+        LoadPlacement();
     }
 
     private void Update()
@@ -168,6 +177,8 @@ public class PlaceableTileManager : MonoBehaviour
 
         _tilemap.SetTile(cellPosition, _selectedTile);
 
+        SavePlacement();
+
         if (_playerAnimator != null)
         {
             _playerAnimator.SetTrigger(AnimatorPlaceTriggerHash);
@@ -195,6 +206,8 @@ public class PlaceableTileManager : MonoBehaviour
 
         _tilemap.SetTile(cellPosition, null);
 
+        SaveDisplacement();
+
         if (_playerAnimator != null)
         {
             _playerAnimator.SetTrigger(AnimatorDisplaceTriggerHash);
@@ -204,5 +217,36 @@ public class PlaceableTileManager : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX(_displaceSound);
         }
+    }
+
+    public void LoadPlacement()
+    {
+        _placementPrefManager.Load();
+
+        foreach (var tileData in _placementPrefManager.Tiles)
+        {
+            _tilemap.SetTile(tileData.position, _tiles[tileData.index]);
+        }
+    }
+
+    public void SavePlacement()
+    {
+        if (_selectedTile == null || _tilemap == null || IsPointerOverUI()) return;
+
+        Vector3Int cellPosition = GetMouseCellPosition();
+
+        int selectedTileIndex = Array.IndexOf(_tiles, _selectedTile);
+        _placementPrefManager.SavedAdd(new PlacementPrefManager.PlacedTilePrefData
+        {
+            position = cellPosition,
+            index = selectedTileIndex
+        });
+    }
+
+    public void SaveDisplacement()
+    {
+        Vector3Int cellPosition = GetMouseCellPosition();
+
+        _placementPrefManager.SavedRemoveAll((tileData) => tileData.position.Equals(cellPosition));
     }
 }
