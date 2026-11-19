@@ -11,8 +11,11 @@ public class PlaceableTileManager : MonoBehaviour
 #nullable enable annotations
     [SerializeField] private Animator? _playerAnimator;
     [SerializeField] private AudioClip? _placeSound;
+    [SerializeField] private AudioClip? _displaceSound;
 #nullable disable annotations
     [SerializeField] private Tile[] _tiles;
+
+    private bool _isDisplaceMode = false;
 
     private Tile _selectedTile;
     private SpriteRenderer _ghostPreviewRenderer;
@@ -24,7 +27,9 @@ public class PlaceableTileManager : MonoBehaviour
     private const string GHOST_PREVIEW_SORTING_LAYER_NAME = "Placeable";
 
     private const string ANIMATOR_PLACE_TRIGGER = "Place";
+    private const string ANIMATOR_DISPLACE_TRIGGER = "Displace";
     private static readonly int AnimatorPlaceTriggerHash = Animator.StringToHash(ANIMATOR_PLACE_TRIGGER);
+    private static readonly int AnimatorDisplaceTriggerHash = Animator.StringToHash(ANIMATOR_DISPLACE_TRIGGER);
 
     private void Awake()
     {
@@ -84,7 +89,14 @@ public class PlaceableTileManager : MonoBehaviour
 
     private void OnClickPerformed(InputAction.CallbackContext context)
     {
-        TryPlaceTile();
+        if (_isDisplaceMode)
+        {
+            TryDisplaceTile();
+        }
+        else
+        {
+            TryPlaceTile();
+        }
     }
 
     private void OnCancelPerformed(InputAction.CallbackContext context)
@@ -126,6 +138,8 @@ public class PlaceableTileManager : MonoBehaviour
 
     public void SelectTile(int index)
     {
+        _isDisplaceMode = false;
+
         if (index >= 0 && index < _tiles.Length)
         {
             _selectedTile = _tiles[index];
@@ -146,9 +160,7 @@ public class PlaceableTileManager : MonoBehaviour
 
     public void TryPlaceTile()
     {
-        if (_selectedTile == null || _tilemap == null) return;
-
-        if (IsPointerOverUI()) return;
+        if (_selectedTile == null || _tilemap == null || IsPointerOverUI()) return;
 
         Vector3Int cellPosition = GetMouseCellPosition();
 
@@ -164,6 +176,33 @@ public class PlaceableTileManager : MonoBehaviour
         if (AudioManager.Instance != null && _placeSound != null)
         {
             AudioManager.Instance.PlaySFX(_placeSound);
+        }
+    }
+
+    public void ToggleDisplaceMode()
+    {
+        ClearSelectionTile();
+        _isDisplaceMode = !_isDisplaceMode;
+    }
+
+    public void TryDisplaceTile()
+    {
+        if (_tilemap == null || IsPointerOverUI()) return;
+
+        Vector3Int cellPosition = GetMouseCellPosition();
+
+        if (!_tilemap.HasTile(cellPosition)) return;
+
+        _tilemap.SetTile(cellPosition, null);
+
+        if (_playerAnimator != null)
+        {
+            _playerAnimator.SetTrigger(AnimatorDisplaceTriggerHash);
+        }
+
+        if (AudioManager.Instance != null && _displaceSound != null)
+        {
+            AudioManager.Instance.PlaySFX(_displaceSound);
         }
     }
 }
