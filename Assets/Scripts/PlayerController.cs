@@ -1,12 +1,19 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(NavMeshAgent))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 5f;
 
+    public event Action<Vector3Int> ArrivedAction;
+
+    private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private Rigidbody2D _rigidbody;
     private InputAction _moveAction;
@@ -25,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
 
@@ -59,6 +67,9 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        _navMeshAgent.updateRotation = false;
+        _navMeshAgent.updateUpAxis = false;
+
         _animator.SetFloat(AnimatorMoveXHash, 0f);
         _animator.SetFloat(AnimatorMoveYHash, -1f);
         _animator.SetBool(AnimatorIsWalkingHash, false);
@@ -66,18 +77,33 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        _movementInput = _moveAction.ReadValue<Vector2>();
+        Vector2 direction;
+        bool isWalking;
 
-        if (_movementInput.sqrMagnitude > 1f)
-            _movementInput.Normalize();
+        if (_navMeshAgent.enabled)
+        {
+            var desiredVelocity = _navMeshAgent.desiredVelocity;
+            direction = new(desiredVelocity.x, desiredVelocity.y);
+            isWalking = _navMeshAgent.velocity.sqrMagnitude > 0.01f;
+        }
+        else
+        {
+            _movementInput = _moveAction.ReadValue<Vector2>();
+            if (_movementInput.sqrMagnitude > 1f)
+                _movementInput.Normalize();
 
-        bool isWalking = _movementInput.sqrMagnitude > 0.01f;
+            direction = _movementInput;
+            isWalking = direction.sqrMagnitude > 0.01f;
+        }
+
         _animator.SetBool(AnimatorIsWalkingHash, isWalking);
 
-        if (isWalking)
+        if (direction.sqrMagnitude > 0.01f)
         {
-            _animator.SetFloat(AnimatorMoveXHash, _movementInput.x);
-            _animator.SetFloat(AnimatorMoveYHash, _movementInput.y);
+            direction.Normalize();
+
+            _animator.SetFloat(AnimatorMoveXHash, direction.x);
+            _animator.SetFloat(AnimatorMoveYHash, direction.y);
         }
     }
 
@@ -89,5 +115,43 @@ public class PlayerController : MonoBehaviour
     private void OnAttackPerformed(InputAction.CallbackContext context)
     {
         _animator.SetTrigger(AnimatorAttackTriggerHash);
+    }
+
+    /// <summary>
+    /// Starts NavMesh movement toward the destination and raises <see cref="ArrivedAction"/>
+    /// with the associated cell when the player arrives.
+    /// </summary>
+    /// <param name="worldDestination">The destination position in world space.</param>
+    /// <param name="cellDestination">The tile cell associated with the destination.</param>
+    public void AutoMoveTowards(Vector3 worldDestination, Vector3Int cellDestination)
+    {
+        _moveAction.Disable();
+        _attackAction.Disable();
+
+        _movementInput = Vector2.zero;
+        _rigidbody.linearVelocity = Vector2.zero;
+        _navMeshAgent.enabled = true;
+
+        if (_navMeshAgent.SetDestination(worldDestination))
+            StartCoroutine(WaitForArrival(cellDestination));
+    }
+
+    private IEnumerator WaitForArrival(Vector3Int cellDestination)
+    {
+        while (_navMeshAgent.pathPending)
+            yield return null;
+
+        if (_navMeshAgent.pathStatus != NavMeshPathStatus.PathComplete)
+            yield break;
+
+        while (_navMeshAgent.remainingDistance > _navMeshAgent.stoppingDistance)
+            yield return null;
+
+        ArrivedAction?.Invoke(cellDestination);
+
+        _navMeshAgent.enabled = false;
+
+        _moveAction.Enable();
+        _attackAction.Enable();
     }
 }
