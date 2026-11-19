@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        _navMeshAgent.enabled = false;
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
 
