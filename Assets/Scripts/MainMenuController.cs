@@ -32,6 +32,8 @@ public class MainMenuController : MonoBehaviour
   [SerializeField] private string _firstLevelSceneName = "GameScene";
 
   private InputAction _cancelAction;
+
+  private const string SAVED_PLACEMENT_KEY = "SavedPlacementData";
   private const string SAVED_LEVEL_KEY = "SavedLevel";
 
   private void Awake()
@@ -84,6 +86,7 @@ public class MainMenuController : MonoBehaviour
 
   private void OnNewGameClicked()
   {
+    PlayerPrefs.DeleteKey(SAVED_PLACEMENT_KEY);
     PlayerPrefs.SetString(SAVED_LEVEL_KEY, _firstLevelSceneName);
     PlayerPrefs.Save();
     SceneManager.LoadScene(_firstLevelSceneName);
