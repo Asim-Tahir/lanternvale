@@ -47,6 +47,9 @@ TagManager:
   - name: Ground
     uniqueID: 1798801849
     locked: 0
+  - name: Placeable
+    uniqueID: 2554599961
+    locked: 0
   - name: Hills
     uniqueID: 4255700779
     locked: 0
