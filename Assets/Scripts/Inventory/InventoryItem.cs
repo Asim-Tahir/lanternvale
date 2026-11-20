@@ -11,7 +11,7 @@ public class InventoryItem : ScriptableObject
   public Sprite Sprite;
 
   [Header("Stacking")]
-  public bool IsStackable = false;
+  public bool IsStackable => StackCapacity > 1;
   public int StackCapacity = 1;
 
   [Header("Classification")]
