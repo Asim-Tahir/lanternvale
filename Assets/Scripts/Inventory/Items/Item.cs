@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Item", menuName = "Inventory/Item")]
-public class InventoryItem : ScriptableObject
+public class Item : ScriptableObject
 {
   [Header("Basic Info")]
   public string Id;
@@ -15,10 +15,10 @@ public class InventoryItem : ScriptableObject
   public int StackCapacity = 1;
 
   [Header("Classification")]
-  public InventoryItemType Type;
+  public ItemType Type;
 }
 
-public enum InventoryItemType : int
+public enum ItemType : int
 {
   Seed,
   Tool
