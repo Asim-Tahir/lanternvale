@@ -5,7 +5,7 @@ public class InventoryItem : ScriptableObject
 {
   [Header("Basic Info")]
   public string Id;
-  public string Label;
+  public string Name;
   [TextArea(2, 4)]
   public string Description;
   public Sprite Sprite;

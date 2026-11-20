@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: WaterPitcherTool
   m_EditorClassIdentifier: Assembly-CSharp::Item
   Id: water-pitcher-tool
-  Label: Water Pitcher
+  Name: Water Pitcher
   Description: 
   Sprite: {fileID: 11835497, guid: fa5847a12986f4a68944c4eecbaca569, type: 3}
+  IsStackable: 0
+  StackCapacity: 1
   Type: 1

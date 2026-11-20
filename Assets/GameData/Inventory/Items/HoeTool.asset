@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: HoeTool
   m_EditorClassIdentifier: Assembly-CSharp::Item
   Id: hoe-tool
-  Label: Hoe Tool
+  Name: Hoe
   Description: 
   Sprite: {fileID: -1315305952, guid: fa5847a12986f4a68944c4eecbaca569, type: 3}
+  IsStackable: 0
+  StackCapacity: 1
   Type: 1

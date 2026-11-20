@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: VirgoSeed
   m_EditorClassIdentifier: Assembly-CSharp::Item
   Id: virgo-seed
-  Label: Virgo Seed
+  Name: Virgo Seed
   Description: 
   Sprite: {fileID: -639269627, guid: d138dfc0a09fe475dbe0c8e66a4c7784, type: 3}
+  IsStackable: 0
+  StackCapacity: 1
   Type: 0

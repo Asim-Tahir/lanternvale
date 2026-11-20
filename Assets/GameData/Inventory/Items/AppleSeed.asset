@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: AppleSeed
   m_EditorClassIdentifier: Assembly-CSharp::Item
   Id: apple-seed
-  Label: Apple Seed
+  Name: Apple Seed
   Description: 
   Sprite: {fileID: -640336642, guid: d138dfc0a09fe475dbe0c8e66a4c7784, type: 3}
+  IsStackable: 0
+  StackCapacity: 1
   Type: 0
