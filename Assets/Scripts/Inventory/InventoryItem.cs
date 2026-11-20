@@ -18,7 +18,7 @@ public class InventoryItem : ScriptableObject
   public ItemType Type;
 }
 
-public enum ItemType
+public enum ItemType : int
 {
   Seed,
   Tool
