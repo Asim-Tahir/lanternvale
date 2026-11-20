@@ -15,10 +15,10 @@ public class InventoryItem : ScriptableObject
   public int StackCapacity = 1;
 
   [Header("Classification")]
-  public ItemType Type;
+  public InventoryItemType Type;
 }
 
-public enum ItemType : int
+public enum InventoryItemType : int
 {
   Seed,
   Tool
