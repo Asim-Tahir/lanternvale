@@ -1,11 +1,9 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIMenuController : MonoBehaviour
+public class HUDController : MonoBehaviour
 {
   private const string MUSIC_VOLUME_KEY = "MusicVolume";
   private const string SFX_VOLUME_KEY = "SFXVolume";
