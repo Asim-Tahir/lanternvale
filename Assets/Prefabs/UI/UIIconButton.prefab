@@ -67,8 +67,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8041209020178883423, guid: a517d15fcb75a4ff589b5acd839eb2fd, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: -1604192433, guid: 92abaf452ab534eaa81feba2742b1357, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 4658904370292916008}
   - component: {fileID: 8275821910316431625}
   m_Layer: 5
-  m_Name: Icon_Settings
+  m_Name: Icon_UIIconButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 4}
   m_SizeDelta: {x: 48, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4658904370292916008
