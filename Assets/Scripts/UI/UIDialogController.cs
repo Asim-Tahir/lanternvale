@@ -66,7 +66,7 @@ public class UIDialogController : MonoBehaviour, InputSystem_Actions.IDialogActi
         }
     }
 
-    public void OnCloseDialog(InputAction.CallbackContext context)
+    public void OnCancel(InputAction.CallbackContext context)
     {
         SafeCloseDialog();
     }
