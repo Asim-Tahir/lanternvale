@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(NavMeshAgent))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 {
     [SerializeField] private float _moveSpeed = 5f;
 
@@ -16,19 +16,21 @@ public class Player : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private Rigidbody2D _rigidbody;
-    private InputAction _moveAction;
-    private InputAction _attackAction;
+    private InputSystem_Actions _actions;
+    private InputSystem_Actions.PlayerActions _playerActions;
     private Vector2 _movementInput;
 
     private const string ANIMATOR_MOVE_X_PARAM = "MoveX";
     private const string ANIMATOR_MOVE_Y_PARAM = "MoveY";
     private const string ANIMATOR_IS_WALKING_PARAM = "IsWalking";
     private const string ANIMATOR_ATTACK_TRIGGER = "Attack";
+    private const string ANIMATOR_USE_TRIGGER = "Use";
 
     private static readonly int AnimatorMoveXHash = Animator.StringToHash(ANIMATOR_MOVE_X_PARAM);
     private static readonly int AnimatorMoveYHash = Animator.StringToHash(ANIMATOR_MOVE_Y_PARAM);
     private static readonly int AnimatorIsWalkingHash = Animator.StringToHash(ANIMATOR_IS_WALKING_PARAM);
     private static readonly int AnimatorAttackTriggerHash = Animator.StringToHash(ANIMATOR_ATTACK_TRIGGER);
+    private static readonly int AnimatorUseTriggerHash = Animator.StringToHash(ANIMATOR_USE_TRIGGER);
 
     private void Awake()
     {
@@ -36,33 +38,40 @@ public class Player : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
 
-        _moveAction = new InputAction("Move", InputActionType.Value);
-        _moveAction.AddCompositeBinding("2DVector")
-            .With("Up", "<Keyboard>/upArrow")
-            .With("Down", "<Keyboard>/downArrow")
-            .With("Left", "<Keyboard>/leftArrow")
-            .With("Right", "<Keyboard>/rightArrow")
-            .With("Up", "<Keyboard>/w")
-            .With("Down", "<Keyboard>/s")
-            .With("Left", "<Keyboard>/a")
-            .With("Right", "<Keyboard>/d");
+        InitializeActions();
+    }
 
-        _attackAction = new InputAction("Attack", InputActionType.Button);
-        _attackAction.AddBinding("<Keyboard>/space");
+    private void InitializeActions()
+    {
+        if (_actions != null)
+        {
+            return;
+        }
+
+        _actions = new InputSystem_Actions();
+        _playerActions = _actions.Player;
+        _playerActions.AddCallbacks(this);
     }
 
     private void OnEnable()
     {
-        _moveAction.Enable();
-        _attackAction.Enable();
-        _attackAction.performed += OnAttackPerformed;
+        if (_actions != null)
+        {
+            _playerActions.Enable();
+        }
     }
 
     private void OnDisable()
     {
-        _moveAction.Disable();
-        _attackAction.Disable();
-        _attackAction.performed -= OnAttackPerformed;
+        if (_actions != null)
+        {
+            _playerActions.Disable();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        _actions?.Dispose();
     }
 
     private void Start()
@@ -89,7 +98,6 @@ public class Player : MonoBehaviour
         }
         else
         {
-            _movementInput = _moveAction.ReadValue<Vector2>();
             if (_movementInput.sqrMagnitude > 1f)
                 _movementInput.Normalize();
 
@@ -113,9 +121,27 @@ public class Player : MonoBehaviour
         _rigidbody.linearVelocity = _movementInput * _moveSpeed;
     }
 
-    private void OnAttackPerformed(InputAction.CallbackContext context)
+    public void OnPause(InputAction.CallbackContext context)
     {
-        _animator.SetTrigger(AnimatorAttackTriggerHash);
+        throw new NotImplementedException();
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        _movementInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnUse(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _animator.SetTrigger(AnimatorUseTriggerHash);
+        }
+    }
+
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        throw new NotImplementedException();
     }
 
     /// <summary>
@@ -126,8 +152,7 @@ public class Player : MonoBehaviour
     /// <param name="cellDestination">The tile cell associated with the destination.</param>
     public void AutoMoveTowards(Vector3 worldDestination, Vector3Int cellDestination)
     {
-        _moveAction.Disable();
-        _attackAction.Disable();
+        _playerActions.Disable();
 
         _movementInput = Vector2.zero;
         _rigidbody.linearVelocity = Vector2.zero;
@@ -152,7 +177,6 @@ public class Player : MonoBehaviour
 
         _navMeshAgent.enabled = false;
 
-        _moveAction.Enable();
-        _attackAction.Enable();
+        _playerActions.Enable();
     }
 }
