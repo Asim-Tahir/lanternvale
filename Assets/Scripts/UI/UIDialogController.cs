@@ -8,7 +8,6 @@ public class UIDialogController : MonoBehaviour, InputSystem_Actions.IDialogActi
 {
     [SerializeField] private bool _isDialogOpen = false;
     public bool IsDialogOpen => _isDialogOpen;
-    [SerializeField] private Button _dialogCloseButton;
     [SerializeField] private List<Button> _dialogActionButtons;
 
     private InputSystem_Actions _actions;
@@ -16,6 +15,16 @@ public class UIDialogController : MonoBehaviour, InputSystem_Actions.IDialogActi
 
     private void Awake()
     {
+        InitializeActions();
+    }
+
+    private void InitializeActions()
+    {
+        if (_actions != null)
+        {
+            return;
+        }
+
         _actions = new InputSystem_Actions();
         _dialogActions = _actions.Dialog;
         _dialogActions.AddCallbacks(this);
@@ -23,8 +32,6 @@ public class UIDialogController : MonoBehaviour, InputSystem_Actions.IDialogActi
 
     private void Start()
     {
-        _dialogCloseButton.onClick.AddListener(OnDialogCloseClicked);
-
         foreach (var dialogActionButton in _dialogActionButtons)
         {
             dialogActionButton.onClick.AddListener(OnDialogActionClicked);
@@ -33,9 +40,10 @@ public class UIDialogController : MonoBehaviour, InputSystem_Actions.IDialogActi
 
     private void OnDestroy()
     {
-        _actions.Dispose();
-
-        _dialogCloseButton.onClick.RemoveListener(OnDialogCloseClicked);
+        if (_actions != null)
+        {
+            _actions.Dispose();
+        }
 
         foreach (var dialogActionButton in _dialogActionButtons)
         {
@@ -45,12 +53,18 @@ public class UIDialogController : MonoBehaviour, InputSystem_Actions.IDialogActi
 
     private void OnEnable()
     {
-        _dialogActions.Enable();
+        if (_actions != null)
+        {
+            _dialogActions.Enable();
+        }
     }
 
     private void OnDisable()
     {
-        _dialogActions.Disable();
+        if (_actions != null)
+        {
+            _dialogActions.Disable();
+        }
     }
 
     public void OnCloseDialog(InputAction.CallbackContext context)
@@ -60,11 +74,6 @@ public class UIDialogController : MonoBehaviour, InputSystem_Actions.IDialogActi
 
     private void OnDialogActionClicked()
     {
-    }
-
-    private void OnDialogCloseClicked()
-    {
-        SafeCloseDialog();
     }
 
     public void OpenDialog()
