@@ -39,10 +39,7 @@ public class UIDialogController : MonoBehaviour, InputSystem_Actions.IDialogActi
 
     private void OnDestroy()
     {
-        if (_actions != null)
-        {
-            _actions.Dispose();
-        }
+        _actions?.Dispose();
 
         foreach (var dialogActionButton in _dialogActionButtons)
         {
