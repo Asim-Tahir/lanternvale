@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
   public static GameManager Instance { get; private set; }
 
   private readonly GamePrefManager _gamePrefManager = GamePrefManager.GetInstance();
+  private readonly TilePrefManager _tilePrefManager = TilePrefManager.GetInstance();
 
   public bool CanContinueGame
   {
@@ -108,6 +109,7 @@ public class GameManager : MonoBehaviour
   public void NewGame()
   {
     _gamePrefManager.ClearSaved();
+    _tilePrefManager.ClearSaved();
 
     LoadDefaultLevel();
   }
