@@ -58,6 +58,8 @@ public class SettingsPrefManager
     /// <param name="volume">A normalized volume value from 0 to 1.</param>
     public void SetMusicVolume(float volume)
     {
+        if (volume == _prefData.musicVolume) return;
+
         _prefData.musicVolume = Mathf.Clamp01(volume);
         Save();
     }
@@ -68,6 +70,8 @@ public class SettingsPrefManager
     /// <param name="volume">A normalized volume value from 0 to 1.</param>
     public void SetSFXVolume(float volume)
     {
+        if (volume == _prefData.sfxVolume) return;
+
         _prefData.sfxVolume = Mathf.Clamp01(volume);
         Save();
     }
