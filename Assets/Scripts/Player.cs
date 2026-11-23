@@ -13,7 +13,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     public event Action<Vector3Int> ArrivedAction;
 
-    private InventoryManager _inventoryManager;
+    private InventoryManager _inventoryManager => InventoryManager.Instance;
     private GameManager _gameManager;
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
@@ -41,7 +41,6 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
 
-        _inventoryManager = InventoryManager.Instance;
         _gameManager = GameManager.Instance;
 
         _actions = new InputSystem_Actions();
