@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UISettingsDialogController : UIDialogController
+public class UISettingsController : MonoBehaviour
 {
   [SerializeField] private Slider _musicSlider;
   [SerializeField] private Slider _sfxSlider;
 
-  private readonly SettingsPrefManager _prefManager = new();
+  private readonly SettingsPrefManager _prefManager = SettingsPrefManager.GetInstance();
 
   private void Awake()
   {
