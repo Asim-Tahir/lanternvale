@@ -99,6 +99,8 @@ public class InventoryPrefManager
     /// </summary>
     public void ClearSaved()
     {
+        _prefData = new();
+
         PlayerPrefs.DeleteKey(SAVED_PREF_KEY);
     }
 
