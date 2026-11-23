@@ -2,6 +2,43 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-24
+
+### Finding Our Way Release
+
+This release adds an inventory, farming, pathfinding, pause menus and more persistance.
+
+#### Highlights
+
+- Added a persistent inventory.
+- Added stackable inventory items with quantity display.
+- Added planting and deplanting on the tile grid.
+- Added automatic pathfinding to reach tiles for planting and deplanting.
+- Added a pause menu and settings dialog.
+
+#### Gameplay
+
+- Added tools and seeds, including the hoe tool and the apple and virgo seeds.
+- Added the Inventory button to open and close the inventory, with the E keybinding.
+
+#### Menus and UI
+
+- Added Continue support for sessions with planted tiles.
+- Added New Game support that clears planted tiles.
+- Refined the main menu and dialog prefabs.
+
+#### Persistence
+
+- Added persistent game progress and level.
+- Added persistent music and SFX settings.
+- Added persistent planted tiles.
+
+#### Audio
+
+- Added planting and hit-plant sound effects.
+
+**Full Changelog**: https://github.com/Asim-Tahir/lanternvale/compare/v0.1.0...v0.2.0
+
 ## [0.1.0] - 2026-11-18
 
 ### Dawn at the Vale Release
