@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SettingsPrefManager
 {
+    public static SettingsPrefManager Instance { get; private set; }
+
     private const string SAVED_PREF_KEY = "SavedSettingsData";
     private const float DEFAULT_MUSIC_VOLUME = 0.75f;
 
@@ -18,6 +20,21 @@ public class SettingsPrefManager
     public float MusicVolume => _prefData.musicVolume;
     public float SFXVolume => _prefData.sfxVolume;
 
+    private SettingsPrefManager() { }
+
+    public static SettingsPrefManager GetInstance()
+    {
+        if (Instance == null)
+        {
+            Instance = new();
+            return Instance;
+        }
+        else
+        {
+            return Instance;
+        }
+    }
+
     /// <summary>
     /// Saves the current settings to <see cref="PlayerPrefs"/>.
     /// </summary>
@@ -28,6 +45,11 @@ public class SettingsPrefManager
         PlayerPrefs.Save();
 
         Debug.Log("Settings saved to PlayerPrefs.");
+    }
+
+    public void ClearSaved()
+    {
+        PlayerPrefs.DeleteKey(SAVED_PREF_KEY);
     }
 
     /// <summary>
