@@ -162,177 +162,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Square Buttons 19x26_0
+      name: VerticalWideButtons_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 56
-        width: 32
-        height: 32
+        x: 7
+        y: 57
+        width: 18
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 6, z: 4, w: 4}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 187826ec216b75590800000000000000
-      internalID: -7685474047196231807
+      spriteID: 379d141baf1794bcf8b377860ad89fb0
+      internalID: -1893438034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 19x26_1
+      name: VerticalWideButtons_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 56
-        width: 32
-        height: 32
+        x: 7
+        y: 9
+        width: 18
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 6, z: 4, w: 4}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3fadad0782c105300800000000000000
-      internalID: 238721740268296947
+      spriteID: ebe0f6bedda9d48a5ad4370f9879e18d
+      internalID: -341499173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 19x26_2
+      name: VerticalWideButtons_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 56
-        width: 32
-        height: 32
+        x: 71
+        y: 57
+        width: 18
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 6, z: 4, w: 4}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2c1d935f1ad0b4fc0800000000000000
-      internalID: -3509696495350066750
+      spriteID: 272853797cfda4a2a976afd3cd229114
+      internalID: 494161227
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 19x26_3
+      name: VerticalWideButtons_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 56
-        width: 32
-        height: 32
+        x: 71
+        y: 9
+        width: 18
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 6, z: 4, w: 4}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9d6b37b1de7cf0b00800000000000000
-      internalID: 797075480249611993
+      spriteID: 8aae383ae288747e2a1de7be8ac94983
+      internalID: 1939035892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 19x26_4
+      name: VerticalWideButtons_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 8
-        width: 32
-        height: 32
+        x: 39
+        y: 57
+        width: 18
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 4, z: 4, w: 6}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 32305868fdef4f150800000000000000
-      internalID: 5905625247377589027
+      spriteID: a721741eee2f4446ab07925c3a9ef779
+      internalID: 185118525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 19x26_5
+      name: VerticalWideButtons_5
       rect:
         serializedVersion: 2
-        x: 32
-        y: 8
-        width: 32
-        height: 32
+        x: 39
+        y: 9
+        width: 18
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 4, z: 4, w: 6}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 790fd042b29315240800000000000000
-      internalID: 4778663537068077207
+      spriteID: 544b3fca923a44a2e9d652f1df18987c
+      internalID: 671224419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 19x26_6
+      name: VerticalWideButtons_6
       rect:
         serializedVersion: 2
-        x: 64
-        y: 8
-        width: 32
-        height: 32
+        x: 103
+        y: 57
+        width: 18
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 4, z: 4, w: 6}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 06c117622f9dc0db0800000000000000
-      internalID: -4824241466770383776
+      spriteID: 112e5e99bd33c4e2fa445dfa97fe4dbe
+      internalID: -1643437292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 19x26_7
+      name: VerticalWideButtons_7
       rect:
         serializedVersion: 2
-        x: 96
-        y: 8
-        width: 32
-        height: 32
+        x: 103
+        y: 9
+        width: 18
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 4, z: 4, w: 6}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f400919a9ca0bd130800000000000000
-      internalID: 3592476988999794767
+      spriteID: f824aa47c8f324fec9e8f7e3f6c7c2c0
+      internalID: -1789407108
       vertices: []
       indices: 
       edges: []
@@ -351,16 +351,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":2.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":8.0},"gridSpritePadding":{"x":0.0,"y":16.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":96.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Square Buttons 19x26_0: -7685474047196231807
-      Square Buttons 19x26_1: 238721740268296947
-      Square Buttons 19x26_2: -3509696495350066750
-      Square Buttons 19x26_3: 797075480249611993
-      Square Buttons 19x26_4: 5905625247377589027
-      Square Buttons 19x26_5: 4778663537068077207
-      Square Buttons 19x26_6: -4824241466770383776
-      Square Buttons 19x26_7: 3592476988999794767
+      VerticalWideButtons_0: -1893438034
+      VerticalWideButtons_1: -341499173
+      VerticalWideButtons_2: 494161227
+      VerticalWideButtons_3: 1939035892
+      VerticalWideButtons_4: 185118525
+      VerticalWideButtons_5: 671224419
+      VerticalWideButtons_6: -1643437292
+      VerticalWideButtons_7: -1789407108
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
