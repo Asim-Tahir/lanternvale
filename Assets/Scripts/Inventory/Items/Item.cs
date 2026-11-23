@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item", menuName = "Inventory/Item")]
-public class Item : ScriptableObject
+public abstract class Item : ScriptableObject
 {
   [Header("Basic Info")]
   public string Id;
@@ -11,11 +10,11 @@ public class Item : ScriptableObject
   public Sprite Sprite;
 
   [Header("Stacking")]
-  public bool IsStackable => StackCapacity > 1;
-  public int StackCapacity = 1;
+  public virtual bool IsStackable => StackCapacity > 1;
+  public virtual int StackCapacity => 1;
 
   [Header("Classification")]
-  public ItemType Type;
+  public abstract ItemType Type { get; }
 }
 
 public enum ItemType : int
