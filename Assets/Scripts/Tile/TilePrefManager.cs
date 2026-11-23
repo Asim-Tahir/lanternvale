@@ -79,6 +79,8 @@ public class TilePrefManager
 
     public void ClearSaved()
     {
+        _prefData = new();
+
         PlayerPrefs.DeleteKey(SAVED_PREF_KEY);
     }
 
