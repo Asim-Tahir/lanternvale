@@ -7,12 +7,13 @@ public class SettingsPrefManager
 
     private const string SAVED_PREF_KEY = "SavedSettingsData";
     private const float DEFAULT_MUSIC_VOLUME = 0.75f;
+    private const float DEFAULT_SFX_VOLUME = 0.75f;
 
     [Serializable]
     private class SettingsPrefData
     {
         public float musicVolume = DEFAULT_MUSIC_VOLUME;
-        public float sfxVolume = DEFAULT_MUSIC_VOLUME;
+        public float sfxVolume = DEFAULT_SFX_VOLUME;
     }
 
     private SettingsPrefData _prefData = new();
@@ -49,6 +50,8 @@ public class SettingsPrefManager
 
     public void ClearSaved()
     {
+        _prefData = new();
+
         PlayerPrefs.DeleteKey(SAVED_PREF_KEY);
     }
 
