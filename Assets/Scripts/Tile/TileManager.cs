@@ -5,16 +5,18 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
-public class PlaceableTileManager : MonoBehaviour
+public class TileManager : MonoBehaviour
 {
     [SerializeField] private Tilemap _tilemap;
 
     [SerializeField] private Animator _playerAnimator;
-    [SerializeField] private PlayerController _playerController;
+    [SerializeField] private Player _player;
     [SerializeField] private AudioClip _placeSound;
     [SerializeField] private AudioClip _displaceSound;
 
     [SerializeField] private Tile[] _tiles;
+
+    public static TileManager Instance { get; private set; }
 
     private bool _isDisplaceMode = false;
 
@@ -24,7 +26,7 @@ public class PlaceableTileManager : MonoBehaviour
     private InputAction _clickAction;
     private InputAction _cancelAction;
 
-    private readonly PlacementPrefManager _placementPrefManager = new();
+    private readonly TilePrefManager _tilePrefManager = TilePrefManager.GetInstance();
 
     private const string GHOST_PREVIEW_RENDERER_NAME = "PlacePreview_Ghost";
     private const string GHOST_PREVIEW_SORTING_LAYER_NAME = "Placeable";
@@ -59,7 +61,7 @@ public class PlaceableTileManager : MonoBehaviour
         _cancelAction.Enable();
         _cancelAction.performed += OnCancelPerformed;
 
-        _playerController.ArrivedAction += OnPlayerArrived;
+        _player.ArrivedAction += OnPlayerArrived;
     }
 
     private void OnDisable()
@@ -70,7 +72,7 @@ public class PlaceableTileManager : MonoBehaviour
         _cancelAction.performed -= OnCancelPerformed;
         _cancelAction.Disable();
 
-        _playerController.ArrivedAction -= OnPlayerArrived;
+        _player.ArrivedAction -= OnPlayerArrived;
     }
 
     private void Start()
@@ -175,7 +177,7 @@ public class PlaceableTileManager : MonoBehaviour
 
         Vector3 worldDestination = _tilemap.GetCellCenterWorld(cellDestination);
 
-        _playerController.AutoMoveTowards(worldDestination, cellDestination);
+        _player.AutoMoveTowards(worldDestination, cellDestination);
     }
 
     public void ToggleDisplaceMode()
@@ -194,7 +196,7 @@ public class PlaceableTileManager : MonoBehaviour
 
         Vector3 worldDestination = _tilemap.GetCellCenterWorld(cellDestination);
 
-        _playerController.AutoMoveTowards(worldDestination, cellDestination);
+        _player.AutoMoveTowards(worldDestination, cellDestination);
     }
 
     private void OnPlayerArrived(Vector3Int cellPosition)
@@ -241,26 +243,26 @@ public class PlaceableTileManager : MonoBehaviour
 
     public void LoadPlacement()
     {
-        _placementPrefManager.Load();
+        _tilePrefManager.Load();
 
-        foreach (var tileData in _placementPrefManager.Tiles)
+        foreach (var tileEntry in _tilePrefManager.TileEntries)
         {
-            _tilemap.SetTile(tileData.position, _tiles[tileData.index]);
+            _tilemap.SetTile(tileEntry.tilePosition, _tiles[tileEntry.tileIndex]);
         }
     }
 
     private void SavePlacement(Vector3Int cellPosition)
     {
         int selectedTileIndex = Array.IndexOf(_tiles, _selectedTile);
-        _placementPrefManager.SavedAdd(new PlacementPrefManager.PlacedTilePrefData
+        _tilePrefManager.SavedAdd(new TilePrefManager.TilePrefTileEntry
         {
-            position = cellPosition,
-            index = selectedTileIndex
+            tilePosition = cellPosition,
+            tileIndex = selectedTileIndex
         });
     }
 
     public void SaveDisplacement(Vector3Int cellPosition)
     {
-        _placementPrefManager.SavedRemoveAll((tileData) => tileData.position.Equals(cellPosition));
+        _tilePrefManager.SavedRemoveAll((tileData) => tileData.tilePosition.Equals(cellPosition));
     }
 }
