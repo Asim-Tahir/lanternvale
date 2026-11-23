@@ -398,7 +398,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7010406634065857786}
         m_TargetAssemblyTypeName: UIDialogController, Assembly-CSharp
-        m_MethodName: SafeCloseDialog
+        m_MethodName: SafeClose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -467,5 +467,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160fbd0ed8c0c4e2b85909bc426f151e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIDialogController
-  _isDialogOpen: 0
+  _isOpen: 0
   _dialogActionButtons: []
