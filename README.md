@@ -7,7 +7,7 @@ Lanternvale is a 2D pixel-art game project built with Unity. The repository curr
 > [!TIP]
 > For the best experience, turn on the audio.
 
-https://github.com/user-attachments/assets/15fb5004-8c78-4ebd-8b28-6471d6d1d169
+https://github.com/user-attachments/assets/f930642a-82ea-48fa-94bd-9d7161bf4463
 
 ## Screenshots
 
@@ -15,13 +15,13 @@ https://github.com/user-attachments/assets/15fb5004-8c78-4ebd-8b28-6471d6d1d169
   <tr>
     <td>
       <figure>
-        <img width="1600" alt="Main menu" src="https://github.com/user-attachments/assets/4219aaf0-ac4d-424f-a3a6-1f659a573c5e" />
+        <img width="1600" alt="Main menu" src="https://github.com/user-attachments/assets/339d80eb-1672-45df-b6a6-dd14c5d4b68d" />
         <figcaption align="center">Main menu</figcaption>
       </figure>
     </td>
     <td>
       <figure>
-        <img width="1600" alt="Settings menu for music and SFX volume levels" src="https://github.com/user-attachments/assets/234b64dc-651a-46cd-9e78-dece82636abe" />
+        <img width="1600" alt="Settings menu for music and SFX volume levels" src="https://github.com/user-attachments/assets/49e3b1f1-b96f-4ef8-8130-679046fad4be" />
         <figcaption align="center">Settings menu for adjusting music and SFX volume levels</figcaption>
       </figure>
     </td>
@@ -29,53 +29,30 @@ https://github.com/user-attachments/assets/15fb5004-8c78-4ebd-8b28-6471d6d1d169
   <tr>
     <td>
       <figure>
-        <img width="1600" alt="First frame after starting a new game" src="https://github.com/user-attachments/assets/faaf84d1-7592-4bba-acc0-cb4c3ccdd959" />
+        <img width="1600" alt="First frame after starting a new game" src="https://github.com/user-attachments/assets/817c3799-22bd-40d4-a052-5b54825a189e" />
         <figcaption align="center">First frame shown after selecting New Game</figcaption>
       </figure>
     </td>
     <td>
       <figure>
-        <img width="1600" alt="Southeast view of the terrain" src="https://github.com/user-attachments/assets/e63bd43e-90db-4fa2-bc8a-dde55257de1b" />
-        <figcaption align="center">Southeast view of the terrain</figcaption>
+        <img width="1600" alt="Auto path finding to plant or deplant" src="https://github.com/user-attachments/assets/873ad220-c15b-4c57-a2fc-e0c037b49c63" />
+        <figcaption align="center">Auto path finding to plant or deplant</figcaption>
       </figure>
     </td>
   </tr>
   <tr>
     <td>
       <figure>
-        <img width="1600" alt="South view of the terrain, with the character over the water beside a lily pad" src="https://github.com/user-attachments/assets/608c2b6a-fe54-4225-a69e-de8c928c09d4" />
-        <figcaption align="center">South view of the terrain, with the character over the water beside a lily pad</figcaption>
+        <img width="1600" alt="Empty player inventory with bottom hotbar" src="https://github.com/user-attachments/assets/33e89683-a9a4-420c-8260-057ad5bef6b2" />
+        <figcaption align="center">Empty player inventory with bottom hotbar</figcaption>
       </figure>
     </td>
     <td>
       <figure>
-        <img width="1600" alt="Northeast view of the terrain" src="https://github.com/user-attachments/assets/cd3c31ab-0c9e-4842-b607-66e3bf620c62" />
-        <figcaption align="center">Northeast view of the terrain</figcaption>
-      </figure>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <figure>
-        <img width="1600" alt="Northwest view of the terrain" src="https://github.com/user-attachments/assets/b6286a82-7d69-4a5d-9dd0-57e9340a6104" />
-        <figcaption align="center">Northwest view of the terrain</figcaption>
-      </figure>
-    </td>
-    <td>
-      <figure>
-        <img width="1600" alt="Southwest view of the terrain" src="https://github.com/user-attachments/assets/b32aadbd-688b-4cf5-8057-dae4c5d26893" />
-        <figcaption align="center">Southwest view of the terrain</figcaption>
-      </figure>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <figure>
-        <img width="1600" alt="Main menu with the Continue button enabled" src="https://github.com/user-attachments/assets/a8799914-9550-4850-9be5-cc92b523d87c" />
+        <img width="1600" alt="Main menu with the Continue button enabled" src="https://github.com/user-attachments/assets/8d92ea89-494f-495e-905c-5e70d74d5209" />
         <figcaption align="center">Main menu with the Continue (Devam et) button enabled after starting a game</figcaption>
       </figure>
     </td>
-    <td></td>
   </tr>
 </table>
 
