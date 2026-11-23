@@ -26,13 +26,13 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private const string ANIMATOR_MOVE_X_PARAM = "MoveX";
     private const string ANIMATOR_MOVE_Y_PARAM = "MoveY";
     private const string ANIMATOR_IS_WALKING_PARAM = "IsWalking";
-    private const string ANIMATOR_ATTACK_TRIGGER = "Attack";
+    private const string ANIMATOR_IS_WATERING_PARAM = "IsWatering";
     private const string ANIMATOR_USE_TRIGGER = "Use";
 
     private static readonly int AnimatorMoveXHash = Animator.StringToHash(ANIMATOR_MOVE_X_PARAM);
     private static readonly int AnimatorMoveYHash = Animator.StringToHash(ANIMATOR_MOVE_Y_PARAM);
     private static readonly int AnimatorIsWalkingHash = Animator.StringToHash(ANIMATOR_IS_WALKING_PARAM);
-    private static readonly int AnimatorAttackTriggerHash = Animator.StringToHash(ANIMATOR_ATTACK_TRIGGER);
+    private static readonly int AnimatorIsWateringHash = Animator.StringToHash(ANIMATOR_IS_WATERING_PARAM);
     private static readonly int AnimatorUseTriggerHash = Animator.StringToHash(ANIMATOR_USE_TRIGGER);
 
     private void Awake()
