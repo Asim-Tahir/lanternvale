@@ -34039,12 +34039,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3328635617783106932, guid: 6236a1720cb2844f8acbeeff0a98c778, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3328635617783106932, guid: 6236a1720cb2844f8acbeeff0a98c778, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1188250314}
+    - target: {fileID: 3328635617783106932, guid: 6236a1720cb2844f8acbeeff0a98c778, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SafeClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328635617783106932, guid: 6236a1720cb2844f8acbeeff0a98c778, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIDialogController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3784749282764461763, guid: 6236a1720cb2844f8acbeeff0a98c778, type: 3}
       propertyPath: m_AnchorMax.y
