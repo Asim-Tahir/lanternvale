@@ -35,4 +35,4 @@ This release establishes the first playable version of Lanternvale, a 2D pixel-a
 - Added background music and SFX audio files.
 - Added separate, persistent music and SFX volume controls.
 
-**Full Changelog**: https://github.com/Asim-Tahir/lanternvale/commits/v1.0.0
+**Full Changelog**: https://github.com/Asim-Tahir/lanternvale/commits/v0.1.0
