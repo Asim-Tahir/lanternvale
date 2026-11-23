@@ -14,6 +14,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     public event Action<Vector3Int> ArrivedAction;
 
     private InventoryManager _inventoryManager;
+    private GameManager _gameManager;
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private Rigidbody2D _rigidbody;
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         _rigidbody = GetComponent<Rigidbody2D>();
 
         _inventoryManager = InventoryManager.Instance;
+        _gameManager = GameManager.Instance;
 
         _actions = new InputSystem_Actions();
         _playerActions = _actions.Player;
@@ -159,7 +161,10 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     public void OnPause(InputAction.CallbackContext context)
     {
-        throw new NotImplementedException();
+        if (_gameManager != null)
+        {
+            _gameManager.TogglePause();
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
