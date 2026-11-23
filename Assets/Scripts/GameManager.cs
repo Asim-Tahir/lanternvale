@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
   {
     get
     {
-      return !(_gamePrefManager.Level == _gamePrefManager.DefaultLevel);
+      return _gamePrefManager.Level != _gamePrefManager.DefaultLevel || _tilePrefManager.TileEntries.Count > 0;
     }
   }
 
@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
       Destroy(gameObject);
       return;
     }
+
+    _gamePrefManager.Load();
   }
 
   private void Start()
