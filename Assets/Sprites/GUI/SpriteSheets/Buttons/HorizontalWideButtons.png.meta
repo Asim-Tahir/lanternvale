@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -162,177 +162,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Square Buttons 26x19_0
+      name: HorizontalWideButtons_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 96
-        width: 32
-        height: 32
+        x: 11
+        y: 103
+        width: 26
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 6, z: 4, w: 4}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b9654bb56f1518930800000000000000
-      internalID: 4143683250699916955
+      spriteID: dfa117302111345558e6a2bf065123c9
+      internalID: -256436446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 26x19_1
+      name: HorizontalWideButtons_1
       rect:
         serializedVersion: 2
-        x: 56
-        y: 96
-        width: 32
-        height: 32
+        x: 11
+        y: 71
+        width: 26
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 6, z: 4, w: 4}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8e9fffb402e831c60800000000000000
-      internalID: 7787724450018884072
+      spriteID: 83b0f60a733a5436c80e132ffea40c0e
+      internalID: -1340775924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 26x19_2
+      name: HorizontalWideButtons_2
       rect:
         serializedVersion: 2
-        x: 8
-        y: 64
-        width: 32
-        height: 32
+        x: 11
+        y: 39
+        width: 26
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 6, z: 4, w: 4}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 54fbdac8d6f938a30800000000000000
-      internalID: 4216388969009364805
+      spriteID: 6704573e3bd3a4bf0b963a3cefc9575f
+      internalID: -38686853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 26x19_3
+      name: HorizontalWideButtons_3
       rect:
         serializedVersion: 2
-        x: 56
-        y: 64
-        width: 32
-        height: 32
+        x: 11
+        y: 7
+        width: 26
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 6, z: 4, w: 4}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 40db2abd708c50f80800000000000000
-      internalID: -8140880815327101692
+      spriteID: 05bfa4a90bde740d193cb621dc844d6a
+      internalID: 715484080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 26x19_4
+      name: HorizontalWideButtons_4
       rect:
         serializedVersion: 2
-        x: 8
-        y: 32
-        width: 32
-        height: 32
+        x: 59
+        y: 103
+        width: 26
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 4, z: 4, w: 5}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3c5ea7383ddd60600800000000000000
-      internalID: 434278314601539011
+      spriteID: 81ccefeb9d0394b26803d1bdc45a08d2
+      internalID: -956538973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 26x19_5
+      name: HorizontalWideButtons_5
       rect:
         serializedVersion: 2
-        x: 56
-        y: 32
-        width: 32
-        height: 32
+        x: 59
+        y: 71
+        width: 26
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 5, z: 4, w: 4}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e121371420efe0900800000000000000
-      internalID: 652738281656750622
+      spriteID: 976abb9dd7ddd4d0795386386e8bc9c5
+      internalID: 1561968581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 26x19_6
+      name: HorizontalWideButtons_6
       rect:
         serializedVersion: 2
-        x: 8
-        y: 0
-        width: 32
-        height: 32
+        x: 59
+        y: 39
+        width: 26
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 5, z: 4, w: 4}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8fe8044f3b7c84790800000000000000
-      internalID: -7545561599948321032
+      spriteID: 28b5a010a799c4e579c374df4154501e
+      internalID: 747279903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square Buttons 26x19_7
+      name: HorizontalWideButtons_7
       rect:
         serializedVersion: 2
-        x: 56
-        y: 0
-        width: 32
-        height: 32
+        x: 59
+        y: 7
+        width: 26
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 5, z: 4, w: 4}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e680364a9ddf654c0800000000000000
-      internalID: -4298969683070875538
+      spriteID: ad34eb45c49dc402390e175f0a5c1832
+      internalID: -1682954895
       vertices: []
       indices: 
       edges: []
@@ -351,16 +351,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":4.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":8.0,"y":0.0},"gridSpritePadding":{"x":16.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":96.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Square Buttons 26x19_0: 4143683250699916955
-      Square Buttons 26x19_1: 7787724450018884072
-      Square Buttons 26x19_2: 4216388969009364805
-      Square Buttons 26x19_3: -8140880815327101692
-      Square Buttons 26x19_4: 434278314601539011
-      Square Buttons 26x19_5: 652738281656750622
-      Square Buttons 26x19_6: -7545561599948321032
-      Square Buttons 26x19_7: -4298969683070875538
+      HorizontalWideButtons_0: -256436446
+      HorizontalWideButtons_1: -1340775924
+      HorizontalWideButtons_2: -38686853
+      HorizontalWideButtons_3: 715484080
+      HorizontalWideButtons_4: -956538973
+      HorizontalWideButtons_5: 1561968581
+      HorizontalWideButtons_6: 747279903
+      HorizontalWideButtons_7: -1682954895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
