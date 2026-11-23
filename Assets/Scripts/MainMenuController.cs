@@ -36,8 +36,6 @@ public class MainMenuController : MonoBehaviour
 
     if (_newGameButton != null)
     {
-      SelectUIElement(_newGameButton.gameObject);
-
       _newGameButton.onClick.AddListener(OnNewGameClicked);
     }
 
@@ -119,19 +117,5 @@ public class MainMenuController : MonoBehaviour
   private void OnSettingsBackClicked()
   {
     OpenMainMenuPanel();
-
-    if (_newGameButton != null)
-    {
-      SelectUIElement(_newGameButton.gameObject);
-    }
-  }
-
-  private void SelectUIElement(GameObject uiElement)
-  {
-    if (EventSystem.current != null && uiElement != null)
-    {
-      EventSystem.current.SetSelectedGameObject(null);
-      EventSystem.current.SetSelectedGameObject(uiElement);
-    }
   }
 }
