@@ -13,12 +13,14 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     public event Action<Vector3Int> ArrivedAction;
 
+    private InventoryManager _inventoryManager;
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private Rigidbody2D _rigidbody;
     private InputSystem_Actions _actions;
     private InputSystem_Actions.PlayerActions _playerActions;
     private Vector2 _movementInput;
+    private bool IsInventoryOpen => _inventoryManager != null && _inventoryManager.IsOpen;
 
     private const string ANIMATOR_MOVE_X_PARAM = "MoveX";
     private const string ANIMATOR_MOVE_Y_PARAM = "MoveY";
@@ -38,15 +40,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
 
-        InitializeActions();
-    }
-
-    private void InitializeActions()
-    {
-        if (_actions != null)
-        {
-            return;
-        }
+        _inventoryManager = InventoryManager.Instance;
 
         _actions = new InputSystem_Actions();
         _playerActions = _actions.Player;
@@ -55,17 +49,37 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     private void OnEnable()
     {
-        if (_actions != null)
+        Enable();
+
+        if (_inventoryManager != null)
         {
-            _playerActions.Enable();
+            _inventoryManager.IsDialogOpenChanged += OnInventoryDialogOpenChanged;
+            OnInventoryDialogOpenChanged(_inventoryManager.IsOpen);
         }
     }
 
     private void OnDisable()
     {
-        if (_actions != null)
+        Disable();
+
+        if (_inventoryManager != null)
         {
-            _playerActions.Disable();
+            _inventoryManager.IsDialogOpenChanged -= OnInventoryDialogOpenChanged;
+        }
+    }
+
+    private void OnInventoryDialogOpenChanged(bool isOpen)
+    {
+        if (isOpen)
+        {
+            _movementInput = Vector2.zero;
+            _rigidbody.linearVelocity = Vector2.zero;
+
+            Disable();
+        }
+        else
+        {
+            Enable();
         }
     }
 
@@ -118,7 +132,29 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     private void FixedUpdate()
     {
-        _rigidbody.linearVelocity = _movementInput * _moveSpeed;
+        _rigidbody.linearVelocity = IsInventoryOpen ? Vector2.zero : _movementInput * _moveSpeed;
+    }
+
+    /// <summary>
+    /// Disable player inputs
+    /// </summary>
+    public void Disable()
+    {
+        if (_actions != null)
+        {
+            _playerActions.Disable();
+        }
+    }
+
+    /// <summary>
+    /// Enable player inputs
+    /// </summary>
+    public void Enable()
+    {
+        if (_actions != null)
+        {
+            _playerActions.Enable();
+        }
     }
 
     public void OnPause(InputAction.CallbackContext context)
@@ -133,7 +169,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     public void OnUse(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !IsInventoryOpen)
         {
             _animator.SetTrigger(AnimatorUseTriggerHash);
         }
@@ -141,7 +177,12 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     public void OnInventory(InputAction.CallbackContext context)
     {
-        throw new NotImplementedException();
+        if (!context.performed || _inventoryManager == null)
+        {
+            return;
+        }
+
+        _inventoryManager.Toggle();
     }
 
     /// <summary>
@@ -152,14 +193,16 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     /// <param name="cellDestination">The tile cell associated with the destination.</param>
     public void AutoMoveTowards(Vector3 worldDestination, Vector3Int cellDestination)
     {
-        _playerActions.Disable();
+        Disable();
 
         _movementInput = Vector2.zero;
         _rigidbody.linearVelocity = Vector2.zero;
         _navMeshAgent.enabled = true;
 
         if (_navMeshAgent.SetDestination(worldDestination))
+        {
             StartCoroutine(WaitForArrival(cellDestination));
+        }
     }
 
     private IEnumerator WaitForArrival(Vector3Int cellDestination)
@@ -177,6 +220,6 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
         _navMeshAgent.enabled = false;
 
-        _playerActions.Enable();
+        Enable();
     }
 }
