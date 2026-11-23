@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     }
 
     _gamePrefManager.Load();
+    _tilePrefManager.Load();
   }
 
   private void Start()
