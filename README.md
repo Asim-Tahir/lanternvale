@@ -89,35 +89,36 @@ The Unity project is configured for 2D URP and uses the Unity Input System packa
 
 ## Controls
 
-| Action        | Control                          |
-| ------------- | -------------------------------- |
-| Move          | `W`, `A`, `S`, `D` or arrow keys |
-| Attack        | `Space`                          |
-| Back / Cancel | `Escape` or gamepad East button  |
+| Action                | Control                          |
+| --------------------- | -------------------------------- |
+| Move                  | `W`, `A`, `S`, `D` or arrow keys |
+| Inventory             | `E`                              |
+| Back / Cancel / Pause | `Escape` or gamepad East button  |
 
-The main menu and settings panels support keyboard and gamepad selection through the Unity Event System.
+The main menu and settings panels support keyboard selection through the Unity Event System.
 
 ## Project Structure
 
 ```text
 Assets/
-├── Animations/       Character and animation assets
-├── Images/           Image assets
-├── Palettes/         Tilemap palettes
-├── Prefabs/          Reusable UI and game objects
-├── Scenes/           Main menu and game scenes
-├── Scripts/          C# gameplay and UI scripts
-├── Settings/         URP and input settings
-├── Sounds/           Background music and SFX
-├── Sprites/          Characters, GUI, objects, and tilesets
-└── Tiles/            Tile assets
+├── Animations/   Character and animation assets
+├── GameData/     Scriptable object definitions (inventory items, game data configuration)
+├── Images/       Image assets
+├── Palettes/     Tilemap palettes
+├── Prefabs/      Reusable UI and game objects
+├── Scenes/       Main menu and game scenes
+├── Scripts/      C# gameplay and UI scripts
+├── Settings/     URP and input settings
+├── Sounds/      Background music and SFX
+├── Sprites/     Characters, GUI, objects, and tilesets
+└── Tiles/       Tile assets
 ```
 
 ## Key Scripts
 
-- `Assets/Scripts/PlayerController.cs` - Handles movement, animation, and attack input.
-- `Assets/Scripts/MainMenuController.cs` - Handles menu navigation, scene loading, continuation, and volume preferences.
-- `Assets/Scripts/AudioManager.cs` - Persists and applies music/SFX mixer volumes and provides shared SFX playback.
+- `Assets/Scripts/Player.cs` - Handles 2D movement, directional walking animations, use action, inventory, and NavMesh auto-pathfinding.
+- `Assets/Scripts/MainMenuController.cs` - Handles main menu navigation, scene loading (New Game/Continue), settings panel, and volume preference persistence.
+- `Assets/Scripts/AudioManager.cs` - Persists music/SFX volumes via PlayerPrefs, applies mixer dB values, and provides shared SFX playback.
 
 ## Scenes
 
