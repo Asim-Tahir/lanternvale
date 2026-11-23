@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -5,8 +6,9 @@ using UnityEngine.UI;
 
 public class UIDialogController : MonoBehaviour, InputSystem_Actions.IDialogActions
 {
-    [SerializeField] private bool _isDialogOpen = false;
-    public bool IsDialogOpen => _isDialogOpen;
+    [SerializeField] private bool _isOpen = false;
+    public bool IsOpen => _isOpen;
+    public event Action<bool> IsOpenChanged;
     [SerializeField] private List<Button> _dialogActionButtons;
 
     private InputSystem_Actions _actions;
@@ -14,16 +16,6 @@ public class UIDialogController : MonoBehaviour, InputSystem_Actions.IDialogActi
 
     private void Awake()
     {
-        InitializeActions();
-    }
-
-    private void InitializeActions()
-    {
-        if (_actions != null)
-        {
-            return;
-        }
-
         _actions = new InputSystem_Actions();
         _dialogActions = _actions.Dialog;
         _dialogActions.AddCallbacks(this);
@@ -33,7 +25,7 @@ public class UIDialogController : MonoBehaviour, InputSystem_Actions.IDialogActi
     {
         foreach (var dialogActionButton in _dialogActionButtons)
         {
-            dialogActionButton.onClick.AddListener(OnDialogActionClicked);
+            dialogActionButton.onClick.AddListener(OnActionClicked);
         }
     }
 
@@ -43,72 +35,78 @@ public class UIDialogController : MonoBehaviour, InputSystem_Actions.IDialogActi
 
         foreach (var dialogActionButton in _dialogActionButtons)
         {
-            dialogActionButton.onClick.RemoveListener(OnDialogActionClicked);
+            dialogActionButton.onClick.RemoveListener(OnActionClicked);
         }
     }
 
-    private void OnEnable()
+    public void OnCancel(InputAction.CallbackContext context)
     {
+        SafeClose();
+    }
+
+    private void OnActionClicked()
+    {
+    }
+
+    public void Open()
+    {
+        bool wasOpen = _isOpen;
+        _isOpen = true;
+        gameObject.SetActive(true);
+
+        if (!wasOpen)
+        {
+            IsOpenChanged?.Invoke(_isOpen);
+        }
+
         if (_actions != null)
         {
             _dialogActions.Enable();
         }
     }
 
-    private void OnDisable()
+    public void SafeOpen()
     {
+        if (!IsOpen)
+        {
+            Open();
+        }
+    }
+
+    public void Close()
+    {
+        bool wasOpen = _isOpen;
+        _isOpen = false;
+        gameObject.SetActive(false);
+
+        if (wasOpen)
+        {
+            IsOpenChanged?.Invoke(_isOpen);
+        }
+
         if (_actions != null)
         {
             _dialogActions.Disable();
         }
     }
 
-    public void OnCancel(InputAction.CallbackContext context)
+    public void SafeClose()
     {
-        SafeCloseDialog();
-    }
-
-    private void OnDialogActionClicked()
-    {
-    }
-
-    public void OpenDialog()
-    {
-        _isDialogOpen = true;
-        gameObject.SetActive(true);
-    }
-
-    public void SafeOpenDialog()
-    {
-        if (!IsDialogOpen)
+        if (IsOpen)
         {
-            OpenDialog();
+            Close();
         }
     }
 
-    public void CloseDialog()
+    public void Toggle()
     {
-        _isDialogOpen = false;
-        gameObject.SetActive(false);
-    }
-
-    public void SafeCloseDialog()
-    {
-        if (IsDialogOpen)
+        if (IsOpen)
         {
-            CloseDialog();
-        }
-    }
-
-    public void ToggleDialog()
-    {
-        if (IsDialogOpen)
-        {
-            CloseDialog();
+            Close();
         }
         else
         {
-            OpenDialog();
+            Open();
         }
     }
 }
