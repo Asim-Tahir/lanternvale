@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59820a45213a641f5a0ac4920ef67e71, type: 3}
+  m_Script: {fileID: 11500000, guid: e3aa1dd7c3c5d467480e16081fcd2865, type: 3}
   m_Name: AppleSeed
-  m_EditorClassIdentifier: Assembly-CSharp::Item
+  m_EditorClassIdentifier: Assembly-CSharp::SeedItem
   Id: apple-seed
   Name: Apple Seed
   Description: 
   Sprite: {fileID: -640336642, guid: d138dfc0a09fe475dbe0c8e66a4c7784, type: 3}
-  IsStackable: 0
-  StackCapacity: 1
-  Type: 0
+  SeedType: 1
