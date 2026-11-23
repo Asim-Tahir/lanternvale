@@ -1,13 +1,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
-  private const string MUSIC_VOLUME_KEY = "MusicVolume";
-  private const string SFX_VOLUME_KEY = "SFXVolume";
+  private GameManager _gameManager => GameManager.Instance;
 
   #region Panels
   [SerializeField] private GameObject _mainMenuPanel;
@@ -19,128 +16,113 @@ public class MainMenuController : MonoBehaviour
   [SerializeField] private Button _continueButton;
   [SerializeField] private Button _newGameButton;
   [SerializeField] private Button _settingsButton;
-  [SerializeField] private Button _exitButton;
   #endregion
 
   #region Settings Panel Buttons
-  [SerializeField] private Slider _musicSlider;
-  [SerializeField] private Slider _sfxSlider;
-  [SerializeField] private Button _backButton;
+  [SerializeField] private Button _settingsBackButton;
   #endregion
   #endregion
 
-  [SerializeField] private string _firstLevelSceneName = "GameScene";
-
-  private InputAction _cancelAction;
-
-  private const string SAVED_PLACEMENT_KEY = "SavedPlacementData";
-  private const string SAVED_LEVEL_KEY = "SavedLevel";
-
-  private void Awake()
+  private void Start()
   {
-    _cancelAction = new InputAction("Cancel", binding: "<Keyboard>/escape");
-    _cancelAction.AddBinding("<Gamepad>/buttonEast");
-    _cancelAction.performed += OnCancelPerformed;
-    _cancelAction.Enable();
+    OpenMainMenuPanel();
+
+    if (_continueButton != null)
+    {
+      _continueButton.interactable = _gameManager.CanContinueGame;
+
+      _continueButton.onClick.AddListener(OnContinueClicked);
+    }
+
+    if (_newGameButton != null)
+    {
+      SelectUIElement(_newGameButton.gameObject);
+
+      _newGameButton.onClick.AddListener(OnNewGameClicked);
+    }
+
+    if (_settingsButton != null)
+    {
+      _settingsButton.onClick.AddListener(OnSettingsClicked);
+    }
+
+    if (_settingsBackButton != null)
+    {
+      _settingsBackButton.onClick.AddListener(OnSettingsBackClicked);
+    }
   }
 
   private void OnDestroy()
   {
-    _cancelAction.performed -= OnCancelPerformed;
-    _cancelAction.Disable();
-    _cancelAction.Dispose();
+    if (_continueButton != null)
+    {
+      _continueButton.onClick.RemoveListener(OnContinueClicked);
+    }
+
+    if (_newGameButton != null)
+    {
+      _newGameButton.onClick.RemoveListener(OnNewGameClicked);
+    }
+
+    if (_settingsButton != null)
+    {
+      _settingsButton.onClick.RemoveListener(OnSettingsClicked);
+    }
+
+    if (_settingsBackButton != null)
+    {
+      _settingsBackButton.onClick.RemoveListener(OnSettingsBackClicked);
+    }
   }
 
-  private void Start()
+  private void OpenSettingsPanel()
   {
-    _mainMenuPanel.SetActive(true);
-    _settingsPanel.SetActive(false);
+    if (_settingsPanel != null)
+    {
+      _settingsPanel.SetActive(true);
+    }
 
-    bool hasSavedLevel = PlayerPrefs.HasKey(SAVED_LEVEL_KEY);
+    if (_mainMenuPanel != null)
+    {
+      _mainMenuPanel.SetActive(false);
+    }
+  }
 
-    _continueButton.interactable = hasSavedLevel;
+  private void OpenMainMenuPanel()
+  {
+    if (_mainMenuPanel != null)
+    {
+      _mainMenuPanel.SetActive(true);
+    }
 
-    _continueButton.onClick.AddListener(OnContinueClicked);
-    _newGameButton.onClick.AddListener(OnNewGameClicked);
-    _settingsButton.onClick.AddListener(OnSettingsClicked);
-    _exitButton.onClick.AddListener(OnExitClicked);
-
-    _musicSlider.value = PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY, 0.75f);
-    _sfxSlider.value = PlayerPrefs.GetFloat(SFX_VOLUME_KEY, 0.75f);
-    _backButton.onClick.AddListener(OnBackClicked);
-
-    _musicSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
-    _sfxSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
-
-    SelectUIElement(_newGameButton.gameObject);
+    if (_settingsPanel != null)
+    {
+      _settingsPanel.SetActive(false);
+    }
   }
 
   private void OnContinueClicked()
   {
-    if (PlayerPrefs.HasKey(SAVED_LEVEL_KEY))
-    {
-      string savedLevel = PlayerPrefs.GetString(SAVED_LEVEL_KEY);
-      SceneManager.LoadScene(savedLevel);
-    }
+    _gameManager.ContinueGame();
   }
 
   private void OnNewGameClicked()
   {
-    PlayerPrefs.DeleteKey(SAVED_PLACEMENT_KEY);
-    PlayerPrefs.SetString(SAVED_LEVEL_KEY, _firstLevelSceneName);
-    PlayerPrefs.Save();
-    SceneManager.LoadScene(_firstLevelSceneName);
+    _gameManager.NewGame();
   }
 
   private void OnSettingsClicked()
   {
-    _mainMenuPanel.SetActive(false);
-    _settingsPanel.SetActive(true);
-
-    SelectUIElement(_musicSlider.gameObject);
+    OpenSettingsPanel();
   }
 
-  private void OnExitClicked()
+  private void OnSettingsBackClicked()
   {
-    Application.Quit();
-  }
+    OpenMainMenuPanel();
 
-  private void OnMusicVolumeChanged(float value)
-  {
-    if (AudioManager.Instance != null)
+    if (_newGameButton != null)
     {
-      AudioManager.Instance.SetMusicVolume(value);
-
-      PlayerPrefs.SetFloat(MUSIC_VOLUME_KEY, value);
-      PlayerPrefs.Save();
-    }
-
-  }
-
-  private void OnSFXVolumeChanged(float value)
-  {
-    if (AudioManager.Instance != null)
-    {
-      AudioManager.Instance.SetSFXVolume(value);
-
-      PlayerPrefs.SetFloat(SFX_VOLUME_KEY, value);
-      PlayerPrefs.Save();
-    }
-  }
-
-  private void OnBackClicked()
-  {
-    _settingsPanel.SetActive(false);
-    _mainMenuPanel.SetActive(true);
-
-    SelectUIElement(_newGameButton.gameObject);
-  }
-
-  private void OnCancelPerformed(InputAction.CallbackContext context)
-  {
-    if (_settingsPanel.activeSelf)
-    {
-      OnBackClicked();
+      SelectUIElement(_newGameButton.gameObject);
     }
   }
 
