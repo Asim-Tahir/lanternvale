@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class InventoryPrefManager
 {
+    public static InventoryPrefManager Instance { get; private set; }
+
+    private const string SAVED_PREF_KEY = "SavedInventoryData";
+
     [Serializable]
     public class InventoryPrefSlotData
     {
@@ -18,14 +22,35 @@ public class InventoryPrefManager
         public List<InventoryPrefSlotData> slots = new();
     }
 
-    private const string SAVED_PREF_KEY = "SavedInventoryData";
-
     private InventoryPrefData _prefData = new();
 
     /// <summary>
     /// Gets the list of inventory slot entries currently stored in memory.
     /// </summary>
     public List<InventoryPrefSlotData> InventorySlots => _prefData.slots;
+
+    private InventoryPrefManager() { }
+
+    /// <summary>
+    /// Gets the <see cref="InventoryManager"/> singleton instance, creating it if one
+    /// does not already exist.
+    /// </summary>
+    /// <returns>The <see cref="InventoryManager"/> singleton instance.</returns>
+    /// <remarks>
+    /// Call this method from Unity's main thread
+    /// </remarks>
+    public static InventoryPrefManager GetInstance()
+    {
+        if (Instance == null)
+        {
+            Instance = new();
+            return Instance;
+        }
+        else
+        {
+            return Instance;
+        }
+    }
 
     /// <summary>
     /// Serializes the current inventory slot data and saves it to <see cref="PlayerPrefs"/>.
@@ -67,6 +92,14 @@ public class InventoryPrefManager
         }
 
         Save();
+    }
+
+    /// <summary>
+    /// Deletes the saved inventory data from <see cref="PlayerPrefs"/>.
+    /// </summary>
+    public void ClearSaved()
+    {
+        PlayerPrefs.DeleteKey(SAVED_PREF_KEY);
     }
 
     /// <summary>
