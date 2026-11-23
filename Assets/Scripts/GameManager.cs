@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -7,6 +8,16 @@ public class GameManager : MonoBehaviour
   [SerializeField] private UIDialogController _pauseDialog;
 
   public static GameManager Instance { get; private set; }
+
+  private readonly GamePrefManager _gamePrefManager = GamePrefManager.GetInstance();
+
+  public bool CanContinueGame
+  {
+    get
+    {
+      return !(_gamePrefManager.Level == _gamePrefManager.DefaultLevel);
+    }
+  }
 
   public bool IsPaused { get; private set; }
 
@@ -26,12 +37,18 @@ public class GameManager : MonoBehaviour
 
   private void Start()
   {
-    _exitButton.onClick.AddListener(OnExitClicked);
+    if (_exitButton != null)
+    {
+      _exitButton.onClick.AddListener(OnExitClicked);
+    }
   }
 
   private void OnDestroy()
   {
-    _exitButton.onClick.RemoveListener(OnExitClicked);
+    if (_exitButton != null)
+    {
+      _exitButton.onClick.RemoveListener(OnExitClicked);
+    }
   }
 
   private void OnExitClicked()
@@ -40,7 +57,7 @@ public class GameManager : MonoBehaviour
   }
 
   /// <summary>
-  /// Pause game and open pause dialog
+  /// Pauses the game and opens the pause dialog.
   /// </summary>
   public void Pause()
   {
@@ -51,6 +68,9 @@ public class GameManager : MonoBehaviour
     }
   }
 
+  /// <summary>
+  /// Resumes the paused game and closes the pause dialog.
+  /// </summary>
   public void Resume()
   {
     if (_pauseDialog != null)
@@ -60,6 +80,9 @@ public class GameManager : MonoBehaviour
     }
   }
 
+  /// <summary>
+  /// Toggles the current pause state of the game.
+  /// </summary>
   public void TogglePause()
   {
     if (IsPaused)
@@ -70,5 +93,29 @@ public class GameManager : MonoBehaviour
     {
       Pause();
     }
+  }
+
+  public void LoadLevel()
+  {
+    SceneManager.LoadScene(_gamePrefManager.Level);
+  }
+
+  public void LoadDefaultLevel()
+  {
+    SceneManager.LoadScene(_gamePrefManager.DefaultLevel);
+  }
+
+  public void NewGame()
+  {
+    _gamePrefManager.ClearSaved();
+
+    LoadDefaultLevel();
+  }
+
+  public void ContinueGame()
+  {
+    if (!CanContinueGame) return;
+
+    LoadLevel();
   }
 }
