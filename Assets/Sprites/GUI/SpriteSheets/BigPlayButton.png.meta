@@ -154,7 +154,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3
-        y: 35
+        y: 163
         width: 90
         height: 27
       alignment: 0
@@ -176,7 +176,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 99
-        y: 35
+        y: 163
         width: 90
         height: 25
       alignment: 0
@@ -198,7 +198,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3
-        y: 3
+        y: 131
         width: 90
         height: 27
       alignment: 0
@@ -220,7 +220,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 99
-        y: 3
+        y: 131
         width: 90
         height: 25
       alignment: 0
@@ -233,6 +233,182 @@ TextureImporter:
       bones: []
       spriteID: 2d71741e3e75818d0800000000000000
       internalID: -2875451725827336238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Big Play Button_4
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 99
+        width: 90
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 6, z: 4, w: 4}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 742095ca6acd94835a4405f12fd6d9de
+      internalID: 702251390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Big Play Button_5
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 99
+        width: 90
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 882b8648ab3b44d9da71ac1ec4494cb0
+      internalID: -760539625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Big Play Button_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 67
+        width: 90
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 6, z: 4, w: 4}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f28fe168ba1a4c2d8658c5a6811d407
+      internalID: -1707011761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Big Play Button_7
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 67
+        width: 90
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7144bf892eb634e119ffd84a590d3684
+      internalID: -946927423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Big Play Button_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 35
+        width: 90
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 6, z: 4, w: 4}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77d3d6d7ad0a242c1a7901ca5640b2e4
+      internalID: 1742709353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Big Play Button_9
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 35
+        width: 90
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b559e3adc093a4417b614d58eec54de2
+      internalID: -1299414226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Big Play Button_10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 3
+        width: 90
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 6, z: 4, w: 4}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51d43b5e554e8418f8ebe73b0bccea11
+      internalID: -1259323377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Big Play Button_11
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 3
+        width: 90
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff29a61fdc04f4242abce8d95ad40da9
+      internalID: 1936474001
       vertices: []
       indices: 
       edges: []
@@ -255,8 +431,16 @@ TextureImporter:
     nameFileIdTable:
       UI Big Play Button_0: -7635131891296033614
       UI Big Play Button_1: 4039400600653599922
+      UI Big Play Button_10: -1259323377
+      UI Big Play Button_11: 1936474001
       UI Big Play Button_2: -8580378784410186006
       UI Big Play Button_3: -2875451725827336238
+      UI Big Play Button_4: 702251390
+      UI Big Play Button_5: -760539625
+      UI Big Play Button_6: -1707011761
+      UI Big Play Button_7: -946927423
+      UI Big Play Button_8: 1742709353
+      UI Big Play Button_9: -1299414226
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
