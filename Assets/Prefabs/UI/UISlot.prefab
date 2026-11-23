@@ -373,7 +373,6 @@ GameObject:
   - component: {fileID: 7475227376096448779}
   - component: {fileID: 6381739025496059998}
   - component: {fileID: 7096954816979746499}
-  - component: {fileID: 6824815358360073376}
   - component: {fileID: 4453017667094548389}
   - component: {fileID: 7608273939379820794}
   m_Layer: 5
@@ -440,18 +439,6 @@ MonoBehaviour:
   _frameImage: {fileID: 3149503056233142822}
   _itemImage: {fileID: 1719677323934433148}
   _quantityText: {fileID: 688232494139500069}
---- !u!114 &6824815358360073376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6853642353016265097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f91b6f99a847493e984fdf516644cc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryDraggableSlotUI
 --- !u!222 &4453017667094548389
 CanvasRenderer:
   m_ObjectHideFlags: 0
