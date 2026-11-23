@@ -9,8 +9,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioSource _sfxSource;
 
-    private const string SAVED_MUSIC_VOLUME_KEY = "MusicVolume";
-    private const string SAVED_SFX_VOLUME_KEY = "SFXVolume";
+    private readonly SettingsPrefManager _settingsPrefManager = SettingsPrefManager.GetInstance();
+
     private const string MIXER_MUSIC_PARAM_KEY = "MusicVolume";
     private const string MIXER_SFX_PARAM_KEY = "SFXVolume";
 
@@ -26,15 +26,14 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        _settingsPrefManager.Load();
     }
 
     private void Start()
     {
-        float musicVolume = PlayerPrefs.GetFloat(SAVED_MUSIC_VOLUME_KEY, 0.75f);
-        float sfxVolume = PlayerPrefs.GetFloat(SAVED_SFX_VOLUME_KEY, 0.75f);
-
-        SetMusicVolume(musicVolume);
-        SetSFXVolume(sfxVolume);
+        SetMusicVolume(_settingsPrefManager.MusicVolume);
+        SetSFXVolume(_settingsPrefManager.SFXVolume);
     }
 
     public void SetMusicVolume(float sliderValue)
@@ -42,7 +41,7 @@ public class AudioManager : MonoBehaviour
         float dB = Mathf.Log10(Mathf.Clamp(sliderValue, 0.0001f, 1f)) * 20f;
 
         _mainMixer.SetFloat(MIXER_MUSIC_PARAM_KEY, dB);
-        PlayerPrefs.SetFloat(SAVED_MUSIC_VOLUME_KEY, sliderValue);
+        _settingsPrefManager.SetMusicVolume(sliderValue);
     }
 
     public void SetSFXVolume(float sliderValue)
@@ -50,7 +49,7 @@ public class AudioManager : MonoBehaviour
         float dB = Mathf.Log10(Mathf.Clamp(sliderValue, 0.0001f, 1f)) * 20f;
 
         _mainMixer.SetFloat(MIXER_SFX_PARAM_KEY, dB);
-        PlayerPrefs.SetFloat(SAVED_SFX_VOLUME_KEY, sliderValue);
+        _settingsPrefManager.SetSFXVolume(sliderValue);
     }
 
     public void PlaySFX(AudioClip clip)
