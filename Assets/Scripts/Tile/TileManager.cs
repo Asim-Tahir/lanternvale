@@ -162,6 +162,14 @@ public class TileManager : MonoBehaviour
         }
     }
 
+    public void SelectDisplacer()
+    {
+        _isDisplaceMode = true;
+        _selectedTile = null;
+
+        TryDisplaceTile();
+    }
+
     public void ClearSelectedTile()
     {
         _selectedTile = null;
